@@ -16,6 +16,9 @@ def generate_launch_description():
           'subscribe_depth':False,
           'subscribe_rgbd':False,
           'subscribe_stereo':True,
+          'map_empty_ray_tracing':True,
+          'map_always_update':True,
+          'scanEmptyRayTracing_':True,
           'approx_sync':False}]
 
     remappings=[]
