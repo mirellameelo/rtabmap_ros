@@ -12,7 +12,7 @@ from nav2_common.launch import Node
 
 def generate_launch_description():
     parameters=[{
-          'frame_id':'camera_link',
+          'frame_id':'base_link',
           'subscribe_depth':False,
           'subscribe_rgbd':False,
           'subscribe_stereo':True,
@@ -32,6 +32,10 @@ def generate_launch_description():
             parameters=parameters,
             remappings=remappings,
             arguments=['-d']),
+        
+       Node(
+            package='tf2_ros', node_executable='static_transform_publisher',
+            arguments=["0.0", "0.0", "0.0", "-1.57.0", "0.0", "-1.57", "base_link", "camera_link"]),
 
         Node(
             package='rtabmap_ros', node_executable='rtabmapviz', output='screen',
